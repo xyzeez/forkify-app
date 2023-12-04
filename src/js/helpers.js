@@ -13,7 +13,6 @@ const timeout = function (s) {
 export const getJSON = async url => {
   try {
     const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
-    console.log(res);
 
     const data = await res.json();
 

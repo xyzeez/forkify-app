@@ -1,3 +1,4 @@
+import { mark } from 'regenerator-runtime';
 import icons from '../../img/icons.svg';
 
 export default class View {
@@ -17,15 +18,17 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   };
 
-  render(data) {
+  render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
     this._data = data;
+
+    const markup = this._generateMarkup();
+
+    if (!render) return markup;
+
     this._clear();
-    this._parentElement.insertAdjacentHTML(
-      'afterbegin',
-      this._generateMarkup()
-    );
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
   update(data) {

@@ -590,7 +590,7 @@ var _resultsViewJsDefault = parcelHelpers.interopDefault(_resultsViewJs);
 var _paginationViewJs = require("./views/paginationView.js");
 var _paginationViewJsDefault = parcelHelpers.interopDefault(_paginationViewJs);
 "use strict";
-if (module.hot) module.hot.accept();
+// if (module.hot) module.hot.accept();
 const controlRecipes = async function() {
     try {
         const id = window.location.hash.slice(1);
@@ -620,7 +620,7 @@ const controlPagination = (goToPage)=>{
 };
 const controlServings = (newServings)=>{
     _modelJs.updateServings(newServings);
-    (0, _recipeViewJsDefault.default).render(_modelJs.state.recipe);
+    (0, _recipeViewJsDefault.default).update(_modelJs.state.recipe);
 };
 const init = ()=>{
     (0, _recipeViewJsDefault.default).addHandlerRender(controlRecipes);
@@ -2919,6 +2919,21 @@ class View {
         this._data = data;
         this._clear();
         this._parentElement.insertAdjacentHTML("afterbegin", this._generateMarkup());
+    }
+    update(data) {
+        if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
+        this._data = data;
+        const newMarkup = this._generateMarkup();
+        const newDOM = document.createRange().createContextualFragment(newMarkup);
+        const newElements = Array.from(newDOM.querySelectorAll("*"));
+        const currElements = Array.from(this._parentElement.querySelectorAll("*"));
+        newElements.forEach((newEl, i)=>{
+            const curEl = currElements[i];
+            if (!newEl.isEqualNode(curEl)) {
+                Array.from(newEl.attributes).forEach((attr)=>curEl.setAttribute(attr.name, attr.value));
+                if (newEl.firstChild?.nodeValue.trim() !== "") curEl.textContent = newEl.textContent;
+            }
+        });
     }
     renderError(message = this._errorMessage) {
         const markup = `

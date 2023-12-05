@@ -10,7 +10,7 @@ import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 
-if (module.hot) module.hot.accept();
+// if (module.hot) module.hot.accept();
 
 const controlRecipes = async function () {
   try {
@@ -52,7 +52,7 @@ const controlPagination = goToPage => {
 
 const controlServings = newServings => {
   model.updateServings(newServings);
-  recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe);
 };
 
 const init = () => {

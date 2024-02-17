@@ -1,0 +1,52 @@
+@use '../utilities/' as *;
+
+.preview {
+  &__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    transition: all 0.3s;
+    padding: 10px;
+    padding-left: 0;
+  }
+
+  &__fig {
+    max-width: 75px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+  }
+
+  &__data {
+    position: relative;
+    width: 100%;
+  }
+
+  &:not(:has(.preview__user-generated.hidden)) {
+    .preview__title {
+      width: calc(100% - (2rem + 10px));
+    }
+  }
+
+  &__user-generated {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: darken($color-grey-light-2, 2%);
+
+    svg {
+      width: 1.1rem;
+      aspect-ratio: 1/1;
+      fill: $color-primary;
+    }
+  }
+}

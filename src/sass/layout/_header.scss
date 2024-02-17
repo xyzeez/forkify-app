@@ -1,0 +1,48 @@
+@use '../utilities' as *;
+
+.header {
+  display: grid;
+  grid-template-areas:
+    'logo nav'
+    'search search';
+  gap: 0.8rem;
+  height: fit-content;
+  padding: 1.5rem 1rem;
+  box-shadow: $box-shadow-1;
+  background-color: $color-grey-light-1;
+
+  &__logo {
+    grid-area: logo;
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+
+    img {
+      max-width: 8rem;
+    }
+  }
+
+  &__form {
+    grid-area: search;
+  }
+
+  &__nav {
+    grid-area: nav;
+    justify-self: flex-end;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: fit-content;
+  height: fit-content;
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+}

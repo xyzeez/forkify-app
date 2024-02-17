@@ -1,0 +1,25 @@
+@use '../utilities/' as *;
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem auto 0;
+
+  &__icon {
+    width: 3.5rem;
+    aspect-ratio: 1/1;
+    fill: $color-primary;
+    animation: rotate 2s infinite linear;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

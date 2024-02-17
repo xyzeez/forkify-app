@@ -1,0 +1,146 @@
+@use '../utilities/' as *;
+
+.recipe {
+  &__article {
+    background-color: $color-grey-light-1;
+  }
+
+  &__fig {
+    position: relative;
+    height: 20rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0.6;
+      background-image: $gradient;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 20%) skewY(-6deg);
+    width: 60%;
+
+    span {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      padding: 1.3rem 2rem;
+      background-image: $gradient;
+    }
+  }
+
+  &__details {
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      'detail1 user button'
+      'detail2 detail2 detail2';
+    grid-template-columns: 1fr repeat(2, max-content);
+    align-items: center;
+    padding: 4rem 2rem 3rem;
+  }
+
+  &__info {
+    grid-area: detail1;
+    display: flex;
+    align-items: center;
+
+    &:last-of-type {
+      grid-area: detail2;
+    }
+  }
+
+  &__info-icon {
+    width: 25px;
+    aspect-ratio: 1/1;
+    fill: $color-primary;
+    margin-right: 1rem;
+  }
+
+  &__info-data {
+    margin-right: 0.5rem;
+  }
+
+  &__info-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-left: 1rem;
+  }
+
+  &__user-generated {
+    grid-area: user;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    aspect-ratio: 1/1;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: darken($color-grey-light-2, 2%);
+
+    svg {
+      width: 20px;
+      aspect-ratio: 1/1;
+      fill: $color-primary;
+    }
+  }
+
+  &__btn {
+    grid-area: button;
+  }
+
+  &__ingredients {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 2rem 2rem 3rem;
+    background-color: $color-grey-light-2;
+  }
+
+  &__ingredient-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  &__ingredient {
+    display: flex;
+  }
+
+  &__icon {
+    width: 20px;
+    aspect-ratio: 1/1;
+    fill: $color-primary;
+    margin-right: 1rem;
+  }
+
+  &__quantity {
+    margin-right: 0.5rem;
+  }
+
+  &__directions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 2rem 2rem 3rem;
+
+    &-text {
+      max-width: 50ch;
+      margin-bottom: 1rem;
+    }
+  }
+}

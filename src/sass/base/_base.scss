@@ -24,7 +24,7 @@ header {
 main {
   grid-area: main;
   display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(50%, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(50%, 100%));
   background-color: $color-white;
 }
 

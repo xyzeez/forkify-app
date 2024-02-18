@@ -27,6 +27,14 @@
     top: calc(3rem);
     right: calc(2rem + 22px);
   }
+
+  @include respond-to(569px) {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(100% - 2rem, 62.5rem);
+  }
 }
 
 .visually-hidden {

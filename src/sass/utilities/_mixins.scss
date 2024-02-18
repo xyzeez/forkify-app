@@ -11,3 +11,9 @@
     @content;
   }
 }
+
+@mixin respond-to($size, $query: 'min-width') {
+  @media screen and ($query: $size) {
+    @content;
+  }
+}

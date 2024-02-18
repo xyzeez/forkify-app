@@ -1,15 +1,18 @@
 @use '../utilities' as *;
 
 .results {
+  border-bottom: 1px solid $color-grey-light-1;
+
   &__inner {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1rem 0;
     height: 100%;
     background-color: $color-white;
   }
 
   &__heading {
+    margin-left: 1rem;
     margin-bottom: 0.5rem;
   }
 
@@ -22,5 +25,24 @@
 
   &__pagination {
     margin: auto auto 0;
+    width: calc(100% - 1rem);
+  }
+
+  @include respond-to(768px) {
+    padding: 1rem 0rem 2rem;
+
+    &__heading {
+      margin-left: 2rem;
+    }
+
+    &__pagination {
+      width: calc(100% - 2rem);
+    }
+  }
+
+  @include respond-to(1024px) {
+    &__inner {
+      padding: 0;
+    }
   }
 }

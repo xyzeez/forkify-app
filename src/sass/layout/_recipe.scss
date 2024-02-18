@@ -1,13 +1,11 @@
 @use '../utilities/' as *;
 
 .recipe {
-  &__article {
-    background-color: $color-grey-light-1;
-  }
+  background-color: $color-grey-light-1;
 
   &__fig {
     position: relative;
-    height: 20rem;
+    height: 18rem;
 
     &::before {
       content: '';
@@ -136,11 +134,29 @@
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
-    padding: 2rem 2rem 3rem;
+    padding: 2rem 1rem 3rem;
 
     &-text {
       max-width: 50ch;
       margin-bottom: 1rem;
+    }
+  }
+
+  @include respond-to(768px) {
+    &__fig {
+      height: 20rem;
+    }
+
+    &__details {
+      padding: 4rem 2rem 3rem;
+    }
+
+    &__ingredients {
+      padding: 3rem;
+    }
+
+    &__directions {
+      padding: 3rem 2rem;
     }
   }
 }

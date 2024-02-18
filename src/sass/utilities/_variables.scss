@@ -27,7 +27,8 @@ $color-grad-2: #f48982;
 $gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
 
 // Box-shadows
-$box-shadow-1: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+$box-shadow-1: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+$box-shadow-2: 0 2rem 6rem 0.5rem rgba(97, 85, 81, 0.2);
 
 /// Container's maximum width
-$max-width: 1180px !default;
+$max-width: 1200px;

@@ -1,6 +1,6 @@
 @use '../utilities' as *;
 
-%round-btn {
+@mixin round-btn {
   min-width: auto;
   aspect-ratio: 1/1;
   padding: 0;
@@ -36,7 +36,7 @@
   }
 
   &:not(:has(span)) {
-    @extend %round-btn;
+    @include round-btn;
 
     .btn__icon {
       width: 24px;
@@ -79,35 +79,40 @@
 }
 
 .btn--sec {
+  text-transform: uppercase;
+
   svg {
     fill: $color-primary;
   }
 }
 
 .search__btn {
-  @extend %round-btn;
+  @include respond-to(767px, 'max-width') {
+    @include round-btn;
 
-  .btn__icon {
-    width: 24px;
-    margin-right: 0rem;
-  }
-
-  span {
-    display: none;
+    .btn__icon {
+      width: 24px;
+      margin-right: 0rem;
+    }
+    span {
+      display: none;
+    }
   }
 }
 
 .nav__btn {
-  @extend %round-btn;
-  height: auto;
+  @include respond-to(767px, 'max-width') {
+    @include round-btn;
+    height: auto;
 
-  .btn__icon {
-    width: 34px;
-    margin-right: 0rem;
-  }
+    .btn__icon {
+      width: 34px;
+      margin-right: 0rem;
+    }
 
-  span {
-    display: none;
+    span {
+      display: none;
+    }
   }
 }
 

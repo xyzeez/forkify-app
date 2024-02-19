@@ -56,6 +56,10 @@
     width: 18px;
     aspect-ratio: 1/1;
   }
+
+  @include respond-to(768px) {
+    font-size: 1rem;
+  }
 }
 
 .btn--pry {
@@ -79,23 +83,38 @@
 }
 
 .btn--sec {
+  font-weight: $bold;
   text-transform: uppercase;
+  padding: 0;
 
   svg {
     fill: $color-primary;
   }
+
+  @include respond-to(768px) {
+    font-size: 14px;
+  }
 }
 
 .search__btn {
-  @include respond-to(767px, 'max-width') {
+  @include respond-to(1023px, 'max-width') {
     @include round-btn;
 
     .btn__icon {
       width: 24px;
       margin-right: 0rem;
     }
+
     span {
       display: none;
+    }
+  }
+
+  @include respond-to(1024px) {
+    height: 52px;
+
+    .btn__icon {
+      width: 20px;
     }
   }
 }

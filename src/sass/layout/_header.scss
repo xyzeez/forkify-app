@@ -6,6 +6,7 @@
     'logo nav'
     'search search';
   gap: 1rem;
+  align-items: center;
   height: fit-content;
   padding: 1.5rem 1rem;
   box-shadow: $box-shadow-1;
@@ -18,7 +19,7 @@
     height: fit-content;
 
     img {
-      max-width: 8rem;
+      max-width: 6rem;
     }
   }
 
@@ -38,12 +39,12 @@
 
     &__logo {
       img {
-        max-width: 10rem;
+        max-width: 8.75rem;
       }
     }
   }
 
-  @include respond-to(1024px) {
+  @include respond-to(600px) {
     grid-template-areas: 'logo search nav';
     grid-template-columns: auto 1fr auto;
     gap: 2rem;
@@ -66,5 +67,11 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
+  }
+
+  @include respond-to(768px) {
+    &__list {
+      gap: 2rem;
+    }
   }
 }

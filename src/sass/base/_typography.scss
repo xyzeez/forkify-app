@@ -24,21 +24,29 @@ body {
     font-size: 1.25rem;
     font-weight: $bold;
     color: $color-primary;
-    text-align: center;
-  }
-
-  &:is(h3) {
-    font-size: 0.95rem;
-    color: $color-primary;
-    font-weight: $semi-bold;
     text-transform: uppercase;
+    text-align: center;
   }
 
   &:is(.results__heading) {
     font-size: 1.25rem;
     font-weight: $semi-bold;
     color: $color-primary;
+    text-transform: none;
     text-align: left;
+  }
+
+  @include respond-to(768px) {
+    &:is(h1) {
+      font-size: 2.5rem;
+      line-height: 2;
+    }
+  }
+
+  @include respond-to(1024px) {
+    &:is(h1) {
+      font-size: 3rem;
+    }
   }
 }
 
@@ -68,14 +76,7 @@ body {
     }
   }
 
-  &:is(.preview__publisher) {
-    font-size: 0.9rem;
-    font-weight: $semi-bold;
-    color: $color-grey-dark-2;
-    text-transform: uppercase;
-  }
-
   &:is(.footer__text) {
-    font-size: 14px;
+    font-size: 12px;
   }
 }

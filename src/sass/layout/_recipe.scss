@@ -47,7 +47,7 @@
       'detail2 detail2 detail2';
     grid-template-columns: 1fr repeat(2, max-content);
     align-items: center;
-    padding: 4rem 1rem 3rem;
+    padding: 4rem 1rem 2rem;
   }
 
   &__info {
@@ -103,25 +103,27 @@
   &__ingredients {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    padding: 2rem 1rem 3rem;
+    gap: 1rem;
+    padding: 2rem 1rem;
     background-color: $color-grey-light-2;
   }
 
   &__ingredient-list {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 1rem;
   }
 
   &__ingredient {
     display: flex;
+    align-items: flex-start;
   }
 
   &__icon {
     width: 20px;
     aspect-ratio: 1/1;
     fill: $color-primary;
+    margin-top: 0.2rem;
     margin-right: 1rem;
   }
 
@@ -133,12 +135,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
-    padding: 2rem 1rem 3rem;
+    gap: 1rem;
+    padding: 2rem 1rem;
 
     &-text {
       max-width: 50ch;
       margin-bottom: 1rem;
+    }
+  }
+
+  @include respond-to(600px) {
+    &__details {
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    &__info {
+      &:first-of-type {
+        margin-right: 2.75rem;
+      }
+    }
+
+    &__user-generated {
+      margin-left: auto;
     }
   }
 
@@ -148,15 +167,39 @@
     }
 
     &__details {
-      padding: 4rem 2rem 3rem;
+      padding: 5rem 2rem 3rem;
     }
 
     &__ingredients {
-      padding: 3rem;
+      gap: 1.5rem;
+      padding: 3rem 2rem;
+    }
+
+    &__ingredient-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem 3rem;
     }
 
     &__directions {
+      gap: 1rem;
       padding: 3rem 2rem;
+    }
+  }
+
+  @include respond-to(1024px) {
+    &__details {
+      padding: 5rem 5rem 3.125rem;
+    }
+
+    &__ingredients {
+      gap: 1.5rem;
+      padding: 3.125rem 5rem;
+    }
+
+    &__directions {
+      gap: 1rem;
+      padding: 3.125rem 5rem;
     }
   }
 }

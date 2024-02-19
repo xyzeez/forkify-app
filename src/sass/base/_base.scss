@@ -52,7 +52,7 @@ main {
   background-color: $color-white;
 
   @include respond-to(1024px) {
-    grid-template-rows: calc(100% - 4rem) auto;
+    grid-template-rows: calc(100% - 3rem) auto;
     grid-template-columns: minmax(340px, 1fr) 2fr;
 
     .recipe {

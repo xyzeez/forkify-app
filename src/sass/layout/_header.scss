@@ -1,6 +1,7 @@
 @use '../utilities' as *;
 
 .header {
+  position: relative;
   display: grid;
   grid-template-areas:
     'logo nav'

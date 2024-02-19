@@ -1,0 +1,28 @@
+@use '../utilities/' as *;
+
+.bookmarks {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(calc(100% - 4rem), 400px);
+  min-height: 100%;
+  z-index: 100;
+  background-color: $color-white;
+  box-shadow: $box-shadow-3;
+
+  &:not(.show) {
+    display: none;
+  }
+
+  &__btn {
+    position: absolute;
+    top: calc(1.1rem - 1px);
+    left: calc(-35px - calc(1rem - 1px));
+  }
+
+  @include respond-to(768px) {
+    position: absolute;
+    top: 100%;
+    min-height: fit-content;
+  }
+}

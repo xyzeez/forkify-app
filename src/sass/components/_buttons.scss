@@ -37,8 +37,10 @@
 
   &:not(:has(span)) {
     @include round-btn;
+  }
 
-    &:not(:has(span), .modal-window__btn) .btn__icon {
+  &:not(:has(span), .modal-window__btn, .bookmarks__btn) {
+    .btn__icon {
       width: 24px;
       margin-right: 0rem;
     }
@@ -147,5 +149,18 @@
   .btn__icon {
     width: 20px;
     margin-right: -1px;
+  }
+}
+
+.bookmarks__btn {
+  height: 35px;
+
+  .btn__icon {
+    width: 20px;
+    margin-right: -1px;
+  }
+
+  @include respond-to(767px) {
+    display: none;
   }
 }

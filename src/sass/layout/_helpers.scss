@@ -1,7 +1,7 @@
 @use '../utilities/' as *;
 
 .overlay {
-  display: block;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,8 +9,24 @@
   height: 100%;
   background-color: $color-black-blur;
   backdrop-filter: blur(4px);
-  z-index: 100;
+  z-index: 10;
   transition: all 0.5s;
+}
+
+body {
+  @include respond-to(767px, 'max-width') {
+    &:has(.bookmarks.show) {
+      .overlay {
+        display: block;
+      }
+    }
+  }
+
+  &:has(.modal-window.show) {
+    .overlay {
+      display: block;
+    }
+  }
 }
 
 .modal-window {
@@ -21,6 +37,10 @@
   width: 100%;
   padding: 2rem;
   z-index: 1000;
+
+  &:not(.show) {
+    display: none;
+  }
 
   &__btn {
     position: absolute;

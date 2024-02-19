@@ -103,15 +103,15 @@
       </div>
     </header>
     <main>
-      <section class="recipe">
-        <div class="feedback message">
+      <section class="recipe hidden">
+        <!-- <div class="feedback message">
           <svg class="feedback__icon">
             <use href="./src/img/icons.svg#icon-smile"></use>
           </svg>
           <p class="feedback__text">
             Start by searching for a recipe or an ingredient. Have fun!
           </p>
-        </div>
+        </div> -->
         <!-- <div class="feedback error">
           <svg class="feedback__icon">
             <use href="./src/img/icons.svg#icon-alert-triangle"></use>
@@ -281,7 +281,7 @@
           </div>
         </article> -->
       </section>
-      <section class="results hidden">
+      <section class="results">
         <!-- <div class="spinner">
           <svg class="spinner__icon">
             <use href="./src/img/icons.svg#icon-loader"></use>
@@ -295,7 +295,7 @@
             No recipes found for your query! Please try again ;)
           </p>
         </div> -->
-        <!-- <div class="results__inner">
+        <div class="results__inner">
           <h2 class="heading results__heading">Searched Recipes:</h2>
           <ul class="results__list">
             <li class="text results__preview preview">
@@ -323,7 +323,7 @@
             <button
               aria-labelledby="previous page"
               data-goto="1"
-              class="btn btn--alt pagination__btn--prev"
+              class="btn btn--alt pagination__btn pagination__btn--prev"
             >
               <svg class="btn__icon">
                 <use href="./src/img/icons.svg#icon-arrow-left"></use>
@@ -333,7 +333,7 @@
             <button
               aria-labelledby="next page"
               data-goto="3"
-              class="btn btn--alt pagination__btn--next"
+              class="btn btn--alt pagination__btn pagination__btn--next"
             >
               <span>Page 3</span>
               <svg class="btn__icon">
@@ -341,7 +341,7 @@
               </svg>
             </button>
           </div>
-        </div> -->
+        </div>
       </section>
     </main>
     <footer class="footer">

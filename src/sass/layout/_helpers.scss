@@ -25,7 +25,7 @@
   &__btn {
     position: absolute;
     top: calc(3rem);
-    right: calc(2rem + 22px);
+    right: calc(2rem + 17.5px);
   }
 
   @include respond-to(569px) {

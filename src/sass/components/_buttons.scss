@@ -38,7 +38,7 @@
   &:not(:has(span)) {
     @include round-btn;
 
-    .btn__icon {
+    &:not(:has(span), .modal-window__btn) .btn__icon {
       width: 24px;
       margin-right: 0rem;
     }
@@ -138,5 +138,14 @@
 .recipe__btn {
   &--update-servings {
     height: auto;
+  }
+}
+
+.modal-window__btn {
+  height: 35px;
+
+  .btn__icon {
+    width: 20px;
+    margin-right: -1px;
   }
 }

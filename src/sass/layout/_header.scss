@@ -36,8 +36,7 @@
   }
 
   @include respond-to(768px) {
-    min-height: 94px;
-    padding: 0 2rem;
+    padding: 1.5rem 2rem;
 
     &__logo {
       img {
@@ -63,30 +62,17 @@
   align-items: center;
   justify-content: flex-end;
   width: fit-content;
-  height: 100%;
+  height: fit-content;
 
   &__list {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    height: 100%;
-  }
-
-  &__item {
-    display: flex;
-    height: 100%;
-    transition: all 0.3s ease-in;
   }
 
   @include respond-to(768px) {
     &__list {
-      gap: 0rem;
-    }
-
-    &__item {
-      &:has(:hover) {
-        background-color: $color-grey-light-2;
-      }
+      gap: 2rem;
     }
   }
 }

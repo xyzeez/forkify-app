@@ -27,11 +27,11 @@
   cursor: pointer;
   transition: all 0.2s;
 
-  &:has(:hover) {
+  &:is(:hover) {
     transform: scale(1.05);
   }
 
-  &:has(:focus) {
+  &:is(:focus) {
     outline: none;
   }
 
@@ -122,14 +122,17 @@
 }
 
 .nav__btn {
+  border-radius: unset;
   transition: all 0.3s;
 
   &:hover {
+    transform: scale(0.95);
     background-color: $color-grey-light-2;
   }
 
   @include respond-to(767px, 'max-width') {
     @include round-btn;
+    border-radius: unset;
     height: auto;
 
     .btn__icon {
@@ -140,6 +143,11 @@
     span {
       display: none;
     }
+  }
+
+  @include respond-to(768px) {
+    padding: 0 0.5rem;
+    height: auto;
   }
 }
 

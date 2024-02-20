@@ -26,11 +26,42 @@
   }
 
   &__fig {
-    max-width: 65px;
+    position: relative;
+    width: 65px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: all 0.3s;
+
+    // flex: 0 0 5.8rem;
+    // border-radius: 50%;
+    // overflow: hidden;
+    // height: 5.8rem;
+    // margin-right: 2rem;
+    // position: relative;
+    // backface-visibility: hidden;
+
+    &::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(
+        to right bottom,
+        $color-grad-1,
+        $color-grad-2
+      );
+    }
+  }
+
+  &__img {
+    position: relative;
     aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;
-    border-radius: 50%;
   }
 
   &__data {

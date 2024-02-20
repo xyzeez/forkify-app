@@ -35,6 +35,16 @@
     justify-self: flex-end;
   }
 
+  @include respond-to(600px) {
+    grid-template-areas: 'logo search nav';
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+
+    &__form {
+      width: min(100%, 500px);
+    }
+  }
+
   @include respond-to(768px) {
     min-height: 94px;
     padding: 0 2rem 0 1.5rem;
@@ -43,16 +53,6 @@
       img {
         max-width: 8.75rem;
       }
-    }
-  }
-
-  @include respond-to(600px) {
-    grid-template-areas: 'logo search nav';
-    grid-template-columns: auto 1fr auto;
-    gap: 2rem;
-
-    &__form {
-      width: min(100%, 500px);
     }
   }
 }

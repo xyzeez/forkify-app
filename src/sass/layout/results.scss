@@ -9,6 +9,12 @@
     background-color: $color-white;
   }
 
+  &:not(.active) {
+    .results__inner {
+      display: none;
+    }
+  }
+
   &__heading {
     margin-left: 1rem;
     margin-bottom: 0.5rem;
@@ -24,6 +30,12 @@
   &__pagination {
     margin: auto auto 0;
     width: calc(100% - 2rem);
+  }
+
+  @include respond-to(1023px, 'max-width') {
+    &:not(.show) {
+      display: none;
+    }
   }
 
   @include respond-to(768px) {

@@ -1,10 +1,3 @@
-/// set-style-on-hover
-@mixin hover {
-  @media (hover: hover) {
-    @content;
-  }
-}
-
 /// media-queries
 @mixin breakpoint($size) {
   @media screen and (min-width: map-get($breakpoints, $size)) {

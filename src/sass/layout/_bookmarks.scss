@@ -9,7 +9,7 @@
   z-index: 100;
   background-color: $color-white;
   box-shadow: $box-shadow-3;
-  // border: 1px solid #000;
+  transition: all 0.5s 0.2s;
 
   &:not(.show) {
     display: none;

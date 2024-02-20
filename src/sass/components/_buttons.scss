@@ -27,6 +27,14 @@
   cursor: pointer;
   transition: all 0.2s;
 
+  &:has(:hover) {
+    transform: scale(1.05);
+  }
+
+  &:has(:focus) {
+    outline: none;
+  }
+
   :first-child {
     margin-right: 0.5rem;
   }
@@ -44,14 +52,6 @@
       width: 24px;
       margin-right: 0rem;
     }
-  }
-
-  &:has(:hover) {
-    transform: scale(1.05);
-  }
-
-  &:has(:focus) {
-    outline: none;
   }
 
   &__icon {
@@ -122,6 +122,12 @@
 }
 
 .nav__btn {
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $color-grey-light-2;
+  }
+
   @include respond-to(767px, 'max-width') {
     @include round-btn;
     height: auto;
@@ -140,6 +146,16 @@
 .recipe__btn {
   &--update-servings {
     height: auto;
+
+    &:hover svg {
+      fill: $color-grad-2;
+      transform: translateY(-1px);
+    }
+
+    &:active svg {
+      fill: $color-grad-2;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -155,6 +171,10 @@
 .bookmarks__btn {
   height: 35px;
 
+  &:hover {
+    transform: scale(1.07);
+  }
+
   .btn__icon {
     width: 20px;
     margin-right: -1px;
@@ -162,5 +182,12 @@
 
   @include respond-to(767px) {
     display: none;
+  }
+}
+
+.pagination__btn {
+  &:hover {
+    color: $color-grad-2;
+    background-color: $color-grey-light-2;
   }
 }

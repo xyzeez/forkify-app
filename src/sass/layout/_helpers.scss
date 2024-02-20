@@ -37,6 +37,7 @@ body {
   width: 100%;
   padding: 2rem;
   z-index: 1000;
+  transition: all 0.5s;
 
   &:not(.show) {
     display: none;

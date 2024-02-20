@@ -10,4 +10,8 @@
   @include respond-to(1024px) {
     padding: 1rem 2rem;
   }
+
+  @include respond-to(1023px, 'max-width') {
+    box-shadow: $box-shadow-5;
+  }
 }

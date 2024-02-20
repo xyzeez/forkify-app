@@ -1,8 +1,6 @@
 @use '../utilities' as *;
 
 .results {
-  border-bottom: 1px solid $color-grey-light-1;
-
   &__inner {
     display: flex;
     flex-direction: column;
@@ -42,7 +40,7 @@
 
   @include respond-to(1024px) {
     padding: 1rem 0rem 1.5rem;
-    box-shadow: $box-shadow-4;
+    box-shadow: $box-shadow-1;
 
     &__inner {
       padding: 0;

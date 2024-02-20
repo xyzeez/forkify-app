@@ -188,6 +188,7 @@
   }
 
   @include respond-to(1024px) {
+    box-shadow: $box-shadow-4;
     &__details {
       padding: 5rem 5rem 3.125rem;
     }

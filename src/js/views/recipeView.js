@@ -6,7 +6,7 @@ class recipeView extends View {
   _parentElement = document.querySelector('.recipe');
   _contentElement = this._parentElement;
   _data;
-  _errorMessage;
+  _feedbackMessage = 'We could not find that recipe. Please try another one!';
 
   renderRecipe = recipeData => {
     this.clearInner();
@@ -131,6 +131,12 @@ class recipeView extends View {
         </a>
       </div>
     </article>`;
+  };
+
+  addHandlerRender = handler => {
+    ['hashchange', 'load'].forEach(event => {
+      window.addEventListener(event, handler);
+    });
   };
 }
 

@@ -2,11 +2,12 @@
 
 import 'core-js/actual';
 import 'regenerator-runtime/runtime';
+if (module.hot) module.hot.accept();
 
 import * as model from './model';
 import recipeView from './views/recipeView';
 
-const controlRecipe = async id => {
+const controlRecipe = async () => {
   try {
     const id = window.location.hash.replace('#', '');
 
@@ -14,14 +15,16 @@ const controlRecipe = async id => {
 
     recipeView.renderSpinner();
 
-    const recipe = await model.loadRecipe(id);
+    await model.loadRecipe(id);
 
-    recipeView.renderRecipe(recipe);
+    recipeView.renderRecipe(model.state.recipe);
   } catch (error) {
-    console.log(error);
+    recipeView.renderFeedback();
   }
 };
 
-['hashchange', 'load'].forEach(event => {
-  window.addEventListener(event, controlRecipe);
-});
+const init = () => {
+  recipeView.addHandlerRender(controlRecipe);
+};
+
+init();

@@ -2,12 +2,11 @@ import icons from '../../img/icons.svg';
 
 export default class View {
   _parentElement;
-  _contentElement = this._parentElement;
   _data;
   _feedbackMessage = 'We could not find that recipe. Please try another one!';
 
   clearInner = () => {
-    this._contentElement.innerHTML = '';
+    this._parentElement.innerHTML = '';
   };
 
   renderSpinner = () => {
@@ -18,7 +17,7 @@ export default class View {
         </svg>
       </div>`;
     this.clearInner();
-    this._contentElement.insertAdjacentHTML('afterbegin', spinner);
+    this._parentElement.insertAdjacentHTML('afterbegin', spinner);
   };
 
   renderFeedback = (message = this._feedbackMessage) => {
@@ -32,6 +31,6 @@ export default class View {
         </p>
       </div>`;
     this.clearInner();
-    this._contentElement.insertAdjacentHTML('afterbegin', feedback);
+    this._parentElement.insertAdjacentHTML('afterbegin', feedback);
   };
 }

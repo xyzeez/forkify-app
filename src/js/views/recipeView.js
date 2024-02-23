@@ -4,7 +4,6 @@ import View from './view';
 
 class recipeView extends View {
   _parentElement = document.querySelector('.recipe');
-  _contentElement = this._parentElement;
   _data;
   _feedbackMessage = 'We could not find that recipe. Please try another one!';
 

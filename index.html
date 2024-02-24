@@ -25,10 +25,15 @@
       <form class="header__form search">
         <input
           type="text"
+          name="search"
           class="search__field"
           placeholder="Search over 1,000,000 recipes..."
         />
-        <button class="btn btn--pry search__btn" aria-label="Search">
+        <button
+          type="submit"
+          class="btn btn--pry search__btn"
+          aria-label="Search"
+        >
           <svg class="btn__icon" aria-hidden="true">
             <use href="./src/img/icons.svg#icon-search"></use>
           </svg>
@@ -297,7 +302,7 @@
             No recipes found for your query! Please try again ;)
           </p>
         </div> -->
-        <div class="results__inner">
+        <!-- <div class="results__inner">
           <h2 class="heading results__heading">Searched Recipes:</h2>
           <ul class="results__list">
             <li class="text results__preview preview">
@@ -345,7 +350,7 @@
               </svg>
             </button>
           </div>
-        </div>
+        </div> -->
       </section>
     </main>
     <footer class="footer">

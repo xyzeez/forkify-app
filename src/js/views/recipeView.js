@@ -37,6 +37,7 @@ class recipeView extends View {
   };
 
   _generateRecipeMarkup = recipe => {
+    this._parentElement.classList.add('active');
     return `
     <article class="recipe__article">
       <figure class="recipe__fig">

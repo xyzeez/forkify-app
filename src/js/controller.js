@@ -6,6 +6,7 @@ if (module.hot) module.hot.accept();
 
 import * as model from './model';
 import recipeView from './views/recipeView';
+import resultView from './views/resultView';
 
 const controlRecipe = async () => {
   try {
@@ -23,8 +24,28 @@ const controlRecipe = async () => {
   }
 };
 
+const controlSearchResult = async query => {
+  try {
+    resultView.renderSpinner();
+
+    await model.loadSearchResult(query);
+
+    resultView.renderResults(model.loadSearchPage());
+    resultView.renderPagination(model.state.search);
+    resultView.addHandlerPagination(controlPagination);
+  } catch (error) {
+    resultView.renderFeedback();
+  }
+};
+
+const controlPagination = goToPage => {
+  resultView.renderResults(model.loadSearchPage(goToPage));
+  resultView.renderPagination(model.state.search);
+};
+
 const init = () => {
   recipeView.addHandlerRender(controlRecipe);
+  resultView.addHandlerSearch(controlSearchResult);
 };
 
 init();

@@ -5,11 +5,19 @@ export default class View {
   _data;
   _feedbackMessage = 'We could not find that recipe. Please try another one!';
 
+  activateParent = () => {
+    this._parentElement.classList.add('active');
+    setTimeout(() => {
+      this._parentElement.scrollIntoView({ behavior: 'smooth' });
+    }, 1000);
+  };
+
   clearInner = () => {
     this._parentElement.innerHTML = '';
   };
 
   renderSpinner = () => {
+    this.activateParent();
     const spinner = `
       <div class="spinner">
         <svg class="spinner__icon">

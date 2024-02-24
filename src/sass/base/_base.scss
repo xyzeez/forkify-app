@@ -47,8 +47,41 @@ header {
 main {
   grid-area: main;
   display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(50%, 100%));
   background-color: $color-white;
+
+  @include respond-to(1023px, 'max-width') {
+    &:not(:has(.recipe.active)) {
+      grid-template-rows: repeat(
+        auto-fit,
+        minmax(calc(100dvh - (50px + 142px)), auto)
+      );
+    }
+
+    &:has(.recipe.active + .results:not(.active)) {
+      .results {
+        display: none;
+      }
+    }
+
+    &:has(.recipe:not(.active) + .results.active) {
+      .recipe {
+        display: none;
+      }
+    }
+
+    &:has(.results:not(.active) + .recipe:not(.active)) {
+      .results {
+        display: none;
+      }
+    }
+  }
+
+  @include respond-to(768px) {
+    grid-template-rows: repeat(
+      auto-fit,
+      minmax(calc(100dvh - (94px + 142px)), auto)
+    );
+  }
 
   @include respond-to(1024px) {
     grid-template-rows: calc(100% - 3rem) auto;

@@ -4,15 +4,9 @@
   &__inner {
     display: flex;
     flex-direction: column;
-    padding: 1rem 0;
+    padding: 1rem 0 0;
     height: 100%;
     background-color: $color-white;
-  }
-
-  &:not(.active) {
-    .results__inner {
-      display: none;
-    }
   }
 
   &__heading {
@@ -23,19 +17,13 @@
   &__list {
     display: flex;
     flex-direction: column;
-    padding: 0 0 1rem;
     border-top: 1px solid $color-grey-light-1;
   }
 
   &__pagination {
     margin: auto auto 0;
+    padding: 0 0 1rem;
     width: calc(100% - 2rem);
-  }
-
-  @include respond-to(1023px, 'max-width') {
-    &:not(.show) {
-      display: none;
-    }
   }
 
   @include respond-to(768px) {
@@ -51,11 +39,15 @@
   }
 
   @include respond-to(1024px) {
-    padding: 1rem 0rem 1.5rem;
+    padding: 1rem 0rem 0rem;
     box-shadow: $box-shadow-1;
 
     &__inner {
       padding: 0;
+    }
+
+    &__pagination {
+      padding-bottom: 4rem;
     }
   }
 }

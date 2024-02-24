@@ -9,6 +9,7 @@ import recipeView from './views/recipeView';
 import resultView from './views/resultView';
 import bookmarksView from './views/bookmarksView';
 import paginationView from './views/paginationView';
+import previewView from './views/previewView';
 
 const controlRecipe = async () => {
   try {
@@ -21,6 +22,8 @@ const controlRecipe = async () => {
     await model.loadRecipe(id);
 
     recipeView.renderRecipe(model.state.recipe);
+
+    previewView.activatePreview();
   } catch (error) {
     recipeView.renderFeedback();
   }

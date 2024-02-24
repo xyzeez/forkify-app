@@ -8,6 +8,7 @@ import * as model from './model';
 import recipeView from './views/recipeView';
 import resultView from './views/resultView';
 import bookmarksView from './views/bookmarksView';
+import paginationView from './views/paginationView';
 
 const controlRecipe = async () => {
   try {
@@ -31,17 +32,20 @@ const controlSearchResult = async query => {
 
     await model.loadSearchResult(query);
 
-    resultView.renderResults(model.loadSearchPage());
-    resultView.renderPagination(model.state.search);
-    resultView.addHandlerPagination(controlPagination);
+    model.loadSearchPage();
+
+    resultView.renderResults(model.state.search.currentPageResults);
+    paginationView.defineSearchData(model.state.search);
+    paginationView.addHandlerPagination(controlPagination);
   } catch (error) {
     resultView.renderFeedback();
   }
 };
 
 const controlPagination = goToPage => {
-  resultView.renderResults(model.loadSearchPage(goToPage));
-  resultView.renderPagination(model.state.search);
+  model.loadSearchPage(goToPage);
+  resultView.renderResults(model.state.search.currentPageResults);
+  paginationView.addHandlerPagination(controlPagination);
 };
 
 const init = () => {

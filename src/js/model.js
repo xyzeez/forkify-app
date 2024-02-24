@@ -12,6 +12,7 @@ export const state = {
     resultsLength: '',
     resultPerPage: RESULT_PER_PAGE,
     currentPage: 1,
+    currentPageResults: [],
   },
   bookmarks: [],
 };
@@ -65,10 +66,10 @@ export const loadSearchResult = async query => {
 export const loadSearchPage = (page = state.search.currentPage) => {
   state.search.currentPage = page;
 
+  state.search.currentPageResults = [];
+
   const start = (page - 1) * state.search.resultPerPage;
   const end = page * state.search.resultPerPage;
 
-  const results = state.search.results.slice(start, end);
-
-  return results;
+  state.search.currentPageResults = [...state.search.results.slice(start, end)];
 };

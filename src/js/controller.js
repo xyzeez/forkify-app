@@ -7,6 +7,7 @@ if (module.hot) module.hot.accept();
 import * as model from './model';
 import recipeView from './views/recipeView';
 import resultView from './views/resultView';
+import bookmarksView from './views/bookmarksView';
 
 const controlRecipe = async () => {
   try {
@@ -46,6 +47,7 @@ const controlPagination = goToPage => {
 const init = () => {
   recipeView.addHandlerRender(controlRecipe);
   resultView.addHandlerSearch(controlSearchResult);
+  bookmarksView.monitorBookmarks();
 };
 
 init();

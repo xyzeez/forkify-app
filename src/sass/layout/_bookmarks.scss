@@ -6,14 +6,10 @@
   right: 0;
   width: min(calc(100% - 4rem), 400px);
   min-height: 100%;
-  z-index: 100;
   background-color: $color-white;
   box-shadow: $box-shadow-3;
   transition: all 0.5s 0.2s;
-
-  &:not(.show) {
-    display: none;
-  }
+  display: none;
 
   &__btn {
     position: absolute;
@@ -35,5 +31,22 @@
     position: absolute;
     top: 100%;
     min-height: fit-content;
+  }
+
+  @include respond-to(1024px, 'max-width') {
+    &:is(.active) {
+      display: block;
+    }
+  }
+
+  @include respond-to(1024px) {
+    &:is(.show) {
+      display: block;
+    }
+
+    &:is(:hover, :focus, :focus-visible, :focus-within),
+    &:has(:hover, :focus, :focus-visible, :focus-visible) {
+      display: block;
+    }
   }
 }

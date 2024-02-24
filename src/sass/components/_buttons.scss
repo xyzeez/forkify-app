@@ -151,6 +151,17 @@
   }
 }
 
+.header:has(.bookmarks:is(:hover, :focus-within)) {
+  .nav__item:has(.nav__btn--bookmarks) {
+    background-color: $color-grey-light-2;
+  }
+
+  .nav__btn--bookmarks {
+    transform: scale(0.95);
+    background-color: $color-grey-light-2;
+  }
+}
+
 .recipe__btn {
   &--update-servings {
     height: auto;

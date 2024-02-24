@@ -100,7 +100,9 @@ class recipeView extends View {
           class="btn btn--pry btn--bookmark recipe__btn"
         >
           <svg class="btn__icon">
-            <use href="${icons}#icon-bookmark"></use>
+            <use href="${icons}#icon-bookmark${
+      recipe.bookmarked ? '-fill' : ''
+    }"></use>
           </svg>
         </button>
       </div>
@@ -136,6 +138,16 @@ class recipeView extends View {
   addHandlerRender = handler => {
     ['hashchange', 'load'].forEach(event => {
       window.addEventListener(event, handler);
+    });
+  };
+
+  addHandlerAddBookmark = handler => {
+    this._parentElement.addEventListener('click', e => {
+      const btn = e.target.closest('.btn--bookmark');
+
+      if (!btn) return;
+
+      handler();
     });
   };
 }

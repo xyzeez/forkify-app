@@ -51,10 +51,18 @@ const controlPagination = goToPage => {
   paginationView.addHandlerPagination(controlPagination);
 };
 
+const controlAddBookmark = () => {
+  model.bookmarkRecipe();
+  recipeView.renderRecipe(model.state.recipe);
+  bookmarksView.renderBookmarks(model.state.bookmarks);
+};
+
 const init = () => {
   recipeView.addHandlerRender(controlRecipe);
   resultView.addHandlerSearch(controlSearchResult);
   bookmarksView.monitorBookmarks();
+  recipeView.addHandlerAddBookmark(controlAddBookmark);
+  bookmarksView.renderBookmarks(model.state.bookmarks);
 };
 
 init();

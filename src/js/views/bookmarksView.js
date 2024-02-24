@@ -1,5 +1,6 @@
 import icons from '../../img/icons.svg';
 import View from './view';
+import previewView from './previewView';
 
 class BookmarksView extends View {
   _parentElement = document.querySelector('.bookmarks');
@@ -8,9 +9,10 @@ class BookmarksView extends View {
   _btnSVG = this._btnElement.querySelector('svg');
   _btnSpan = this._btnElement.querySelector('span');
   _btnIcon = this._btnElement.querySelector('use');
-  _btnCloseElement = document.querySelector('.bookmarks__btn');
+  _btnCloseElement;
   _overlay = document.querySelector('.overlay');
   openState = false;
+  _feedbackMessage = 'No bookmarks yet. Find a nice recipe and bookmark it ;)';
 
   clearInner = () => {
     this._parentElement.innerHTML = '';
@@ -97,14 +99,54 @@ class BookmarksView extends View {
       }
     });
 
-    [this._overlay, this._btnCloseElement].forEach(element => {
-      element.addEventListener('click', () => {
-        this._parentElement.style.zIndex = '100';
-        this._parentElement.classList.remove('active');
-        this._parentElement.classList.remove('show');
-        this.openState = false;
-      });
+    this._overlay.addEventListener('click', () => {
+      this._parentElement.style.zIndex = '100';
+      this._parentElement.classList.remove('active');
+      this._parentElement.classList.remove('show');
+      this.openState = false;
     });
+  };
+
+  monitorCloseBookmark = () => {
+    _btnCloseElement = document.querySelector('.bookmarks__btn');
+    this._btnCloseElement.addEventListener('click', () => {
+      this._parentElement.style.zIndex = '100';
+      this._parentElement.classList.remove('active');
+      this._parentElement.classList.remove('show');
+      this.openState = false;
+    });
+  };
+
+  renderFeedback = (message = this._feedbackMessage) => {
+    const feedback = `
+      <div class="feedback error">
+        <svg class="feedback__icon">
+          <use href="${icons}#icon-alert-triangle"></use>
+        </svg>
+        <p class="feedback__text">
+          ${message}
+        </p>
+      </div>`;
+    this.clearInner();
+    this._parentElement.insertAdjacentHTML('beforeend', feedback);
+  };
+
+  renderBookmarksList = data => {
+    const list = `
+    <ul class="bookmarks__list">
+    ${previewView._generatePreview(data)}
+    </ul>`;
+    this.clearInner();
+    this._parentElement.insertAdjacentHTML('beforeend', list);
+  };
+
+  renderBookmarks = data => {
+    if (!data.length) {
+      this.renderFeedback();
+      return;
+    }
+    this.renderBookmarksList(data);
+    this.monitorCloseBookmark();
   };
 }
 

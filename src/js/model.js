@@ -102,6 +102,15 @@ const localStoreBookmarks = () => {
   localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
 };
 
+export const updateServings = newServings => {
+  state.recipe.ingredients.map(ingredient => {
+    ingredient.quantity =
+      (ingredient.quantity * newServings) / state.recipe.servings;
+  });
+
+  state.recipe.servings = newServings;
+};
+
 const init = () => {
   const storage = localStorage.getItem('bookmarks');
 

@@ -73,7 +73,7 @@ class recipeView extends View {
             <button
               class="btn btn--sec recipe__btn--update-servings"
               aria-labelledby="reduce servings"
-              data-update-to="3"
+              data-update-to="${recipe.servings - 1}"
             >
               <svg class="btn__icon">
                 <use href="${icons}#icon-minus-circle"></use>
@@ -82,7 +82,7 @@ class recipeView extends View {
             <button
               class="btn btn--sec recipe__btn--update-servings"
               aria-labelledby="increase servings"
-              data-update-to="5"
+              data-update-to="${recipe.servings + 1}"
             >
               <svg class="btn__icon">
                 <use href="${icons}#icon-plus-circle"></use>
@@ -150,6 +150,20 @@ class recipeView extends View {
       handler();
     });
   };
+
+  addHandlerUpdateServings(handler) {
+    this._parentElement.addEventListener('click', e => {
+      const btn = e.target.closest('.recipe__btn--update-servings');
+
+      if (!btn) return;
+
+      const updateTo = +btn.getAttribute('data-update-to');
+
+      if (updateTo <= 0) return;
+
+      handler(updateTo);
+    });
+  }
 }
 
 export default new recipeView();

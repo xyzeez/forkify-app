@@ -1,6 +1,7 @@
 @use '../utilities/' as *;
 
 .bookmarks {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
@@ -9,7 +10,7 @@
   background-color: $color-white;
   box-shadow: $box-shadow-3;
   transition: all 0.5s 0.2s;
-  display: none;
+  z-index: 100;
 
   &__btn {
     position: absolute;

@@ -33,7 +33,7 @@
   &__nav {
     grid-area: nav;
     justify-self: flex-end;
-    z-index: 1000;
+    z-index: 100;
   }
 
   @include respond-to(600px) {

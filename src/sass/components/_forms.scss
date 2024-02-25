@@ -48,9 +48,10 @@
 }
 
 .upload {
-  display: grid;
-  grid-template-rows: 1fr 1fr auto;
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: min(100%, 504px);
   padding: 1rem;
   border-radius: 10px;
@@ -71,16 +72,38 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+
+    &:first-of-type {
+      display: none;
+    }
   }
 
-  label {
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3rem;
+  }
+
+  &__input-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    &:has(.form__input[aria-invalid='true']) {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  &__label {
     font-size: 1rem;
     font-weight: $semi-bold;
     color: $color-grey-dark-1;
-    margin-bottom: 0.5rem;
   }
 
-  input {
+  &__input {
     font-size: 1rem;
     font-weight: $regular;
     padding: 0 1rem;
@@ -91,8 +114,8 @@
     border-radius: 0.5rem;
     transition: all 0.2s;
 
-    &:not(:last-child) {
-      margin-bottom: 1rem;
+    &[aria-invalid='true'] {
+      border: 1px solid $color-error;
     }
 
     &::placeholder {
@@ -100,50 +123,89 @@
     }
   }
 
+  &__error-message {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    font-size: 0.75em;
+    color: $color-error;
+    animation: fade-in 0.3s ease-in;
+  }
+
+  &__input[aria-invalid='true'] + .form__error-message {
+    display: block;
+  }
+
   &__btn {
     margin: 0 auto;
     margin-top: 0rem;
   }
 
+  &__btn--next,
+  &__btn--prev {
+    position: absolute;
+    bottom: 0;
+    right: calc(50% - 50px);
+  }
+
+  &__btn--submit {
+    margin-top: 1rem;
+
+    &:not(.show) {
+      display: none;
+    }
+  }
+
   @include respond-to(569px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr auto;
     padding: 2rem;
     width: 100%;
+
+    &:has(.upload__btn--submit:not(.show)) {
+      padding-bottom: 5rem;
+    }
 
     &__heading {
       font-size: 1.25rem;
     }
 
-    &__btn {
-      grid-column: 1/3;
+    &__inner {
+      flex-direction: row;
+      flex-wrap: wrap;
+      column-gap: 2rem;
+      padding-bottom: 0rem;
+    }
+
+    &__input-container {
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 300px;
+    }
+
+    &__btn--prev,
+    &__btn--next {
+      bottom: -3.75rem;
+    }
+
+    &__btn--prev {
+      right: auto;
+    }
+
+    &__btn--next {
+      right: 0;
+    }
+
+    &__btn--submit {
+      margin-right: 0;
     }
   }
 
   @include respond-to(1024px) {
-    gap: 2rem 4rem;
-
     &__heading {
       font-size: 1.5rem;
     }
 
-    &__column {
-      display: grid;
-      grid-template-columns: 1fr 3.2fr;
-      justify-content: space-between;
-    }
-
-    &__heading {
-      grid-column: 1/-1;
-    }
-
-    label {
+    &__label {
       margin-top: 0.5rem;
-      margin-bottom: 0;
-    }
-
-    input {
-      margin-left: 1rem;
     }
   }
 }

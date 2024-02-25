@@ -210,3 +210,21 @@
     background-color: $color-grey-light-2;
   }
 }
+
+.upload__btn {
+  &--prev {
+    .btn__icon {
+      transform: scaleX(-1);
+    }
+  }
+
+  &--next {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0 20px 0 24px;
+
+    :first-child {
+      margin-right: 0;
+    }
+  }
+}

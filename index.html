@@ -44,7 +44,7 @@
         <ul class="nav__list">
           <li class="text nav__item">
             <button
-              class="btn btn--sec nav__btn nav__btn--add-recipe"
+              class="btn btn--sec nav__btn nav__btn--upload-recipe"
               aria-label="Add recipe"
             >
               <svg class="btn__icon">
@@ -367,66 +367,279 @@
       aria-describedby="A popup containing the form to upload new recipies"
       class="modal-window"
     >
-      <form class="upload">
+      <form class="upload" novalidate>
         <div class="upload__column">
           <h2 class="upload__heading">Recipe data</h2>
-          <label>Title: </label>
-          <input required name="title" type="text" />
-          <label>URL: </label>
-          <input required name="sourceUrl" type="text" />
-          <label>Image URL: </label>
-          <input required name="image" type="text" />
-          <label>Publisher: </label>
-          <input required name="publisher" type="text" />
-          <label>Prep time: </label>
-          <input required name="cookingTime" type="number" />
-          <label>Servings: </label>
-          <input required name="servings" type="number" />
+          <div class="upload__inner">
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="title" class="upload__label">Title: </label>
+              <input
+                type="text"
+                name="title"
+                aria-errormessage="titleErrorMessage"
+                placeholder="e.g. Pizza Dip"
+                class="upload__input"
+              />
+              <p
+                id="titleErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a valid recipe title
+              </p>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="sourceUrl" class="upload__label">URL: </label>
+              <input
+                type="text"
+                name="sourceUrl"
+                aria-errormessage="sourceUrlErrorMessage"
+                placeholder="www.example.com"
+                class="upload__input"
+              />
+              <p
+                id="sourceUrlErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a valid URL
+              </p>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="image" class="upload__label">Image URL: </label>
+              <input
+                type="text"
+                name="image"
+                aria-errormessage="imageErrorMessage"
+                placeholder="www.example.com/photo-1"
+                class="upload__input"
+              />
+              <p
+                id="imageErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a valid image url
+              </p>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="publisher" class="upload__label">Publisher: </label>
+              <input
+                type="text"
+                name="publisher"
+                aria-errormessage="publisherErrorMessage"
+                placeholder="e.g. Pizza Dip"
+                class="upload__input"
+              />
+              <p
+                id="publisherErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a valid publisher
+              </p>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="cookingTime" class="upload__label">Prep time: </label>
+              <input
+                type="number"
+                name="cookingTime"
+                aria-errormessage="cookingTimeErrorMessage"
+                placeholder="e.g. 30 (calculate in minutes)"
+                class="upload__input"
+              />
+              <p
+                id="cookingTimeErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a valid prep time
+              </p>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="servings" class="upload__label">Servings: </label>
+              <input
+                type="number"
+                name="servings"
+                aria-errormessage="servingsErrorMessage"
+                placeholder="e.g. 4"
+                class="upload__input"
+              />
+              <p
+                id="servingsErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a valid number of servings
+              </p>
+            </div>
+            <!--  -->
+            <button
+              aria-label="Upload"
+              class="btn btn--alt upload__btn upload__btn--next"
+            >
+              <svg class="btn__icon" aria-hidden="true">
+                <use href="./src/img/icons.svg#icon-arrow-right"></use>
+              </svg>
+              <span>Next</span>
+            </button>
+          </div>
         </div>
         <div class="upload__column">
           <h2 class="upload__heading">Ingredients</h2>
-          <label>Ingredient 1: </label>
-          <input
-            type="text"
-            required
-            name="ingredient-1"
-            placeholder="Quantity, Unit, Description"
-          />
-          <label>Ingredient 2: </label>
-          <input
-            type="text"
-            name="ingredient-2"
-            placeholder="Quantity, Unit, Description"
-          />
-          <label>Ingredient 3: </label>
-          <input
-            type="text"
-            name="ingredient-3"
-            placeholder="Quantity, Unit, Description"
-          />
-          <label>Ingredient 4: </label>
-          <input
-            type="text"
-            name="ingredient-4"
-            placeholder="Quantity, Unit, Description"
-          />
-          <label>Ingredient 5: </label>
-          <input
-            type="text"
-            name="ingredient-5"
-            placeholder="Quantity, Unit, Description"
-          />
-          <label>Ingredient 6: </label>
-          <input
-            type="text"
-            name="ingredient-6"
-            placeholder="Quantity, Unit, Description"
-          />
+          <div class="upload__inner">
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="publisher" class="upload__label"
+                >Ingredient 1:
+              </label>
+              <input
+                type="text"
+                name="ingredient-1"
+                aria-errormessage="publisherErrorMessage"
+                placeholder="Quantity, Unit, Description"
+                class="upload__input"
+              />
+              <p
+                id="publisherErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a in the required format
+              </p>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="publisher" class="upload__label"
+                >Ingredient 2:
+              </label>
+              <input
+                type="text"
+                name="ingredient-2"
+                aria-errormessage="publisherErrorMessage"
+                placeholder="Quantity, Unit, Description"
+                class="upload__input"
+              />
+              <p
+                id="publisherErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a in the required format
+              </p>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="publisher" class="upload__label"
+                >Ingredient 3:
+              </label>
+              <input
+                type="text"
+                name="ingredient-3"
+                aria-errormessage="publisherErrorMessage"
+                placeholder="Quantity, Unit, Description"
+                class="upload__input"
+              />
+              <p
+                id="publisherErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a in the required format
+              </p>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="publisher" class="upload__label"
+                >Ingredient 4:
+              </label>
+              <input
+                type="text"
+                name="ingredient-4"
+                aria-errormessage="publisherErrorMessage"
+                placeholder="Quantity, Unit, Description"
+                class="upload__input"
+              />
+              <p
+                id="publisherErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a in the required format
+              </p>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="publisher" class="upload__label"
+                >Ingredient 5:
+              </label>
+              <input
+                type="text"
+                name="ingredient-5"
+                aria-errormessage="publisherErrorMessage"
+                placeholder="Quantity, Unit, Description"
+                class="upload__input"
+              />
+              <p
+                id="publisherErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a in the required format
+              </p>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="upload__input-container">
+              <label for="publisher" class="upload__label"
+                >Ingredient 6:
+              </label>
+              <input
+                type="text"
+                name="ingredient-6"
+                aria-errormessage="publisherErrorMessage"
+                placeholder="Quantity, Unit, Description"
+                class="upload__input"
+              />
+              <p
+                id="publisherErrorMessage"
+                aria-live="polite"
+                class="upload__error-message"
+              >
+                Please enter a in the required format
+              </p>
+            </div>
+            <!--  -->
+            <button
+              aria-label="Upload"
+              class="btn btn--alt upload__btn upload__btn--prev"
+            >
+              <svg class="btn__icon" aria-hidden="true">
+                <use href="./src/img/icons.svg#icon-arrow-right"></use>
+              </svg>
+              <span>Prev</span>
+            </button>
+          </div>
         </div>
         <button
           type="submit"
           aria-label="Upload"
-          class="btn btn--pry upload__btn"
+          class="btn btn--pry upload__btn upload__btn--submit"
         >
           <svg class="btn__icon" aria-hidden="true">
             <use href="./src/img/icons.svg#icon-upload-cloud"></use>

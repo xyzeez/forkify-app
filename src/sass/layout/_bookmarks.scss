@@ -39,7 +39,7 @@
     }
   }
 
-  @include respond-to(1024px) {
+  @include respond-to(768px) {
     &:is(.show) {
       display: block;
     }

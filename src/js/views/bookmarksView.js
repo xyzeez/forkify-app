@@ -108,7 +108,7 @@ class BookmarksView extends View {
   };
 
   monitorCloseBookmark = () => {
-    _btnCloseElement = document.querySelector('.bookmarks__btn');
+    this._btnCloseElement = document.querySelector('.bookmarks__btn');
     this._btnCloseElement.addEventListener('click', () => {
       this._parentElement.style.zIndex = '100';
       this._parentElement.classList.remove('active');
@@ -129,6 +129,7 @@ class BookmarksView extends View {
       </div>`;
     this.clearInner();
     this._parentElement.insertAdjacentHTML('beforeend', feedback);
+    this.monitorCloseBookmark();
   };
 
   renderBookmarksList = data => {
@@ -138,6 +139,7 @@ class BookmarksView extends View {
     </ul>`;
     this.clearInner();
     this._parentElement.insertAdjacentHTML('beforeend', list);
+    this.monitorCloseBookmark();
   };
 
   renderBookmarks = data => {
@@ -146,7 +148,6 @@ class BookmarksView extends View {
       return;
     }
     this.renderBookmarksList(data);
-    this.monitorCloseBookmark();
   };
 }
 

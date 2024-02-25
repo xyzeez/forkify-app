@@ -53,13 +53,13 @@ const controlPagination = goToPage => {
 
 const controlAddBookmark = () => {
   model.bookmarkRecipe();
-  recipeView.renderRecipe(model.state.recipe);
+  recipeView.updateRecipe(model.state.recipe);
   bookmarksView.renderBookmarks(model.state.bookmarks);
 };
 
 const controlServings = newServings => {
   model.updateServings(newServings);
-  recipeView.renderRecipe(model.state.recipe);
+  recipeView.updateRecipe(model.state.recipe);
 };
 
 const init = () => {

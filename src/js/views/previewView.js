@@ -26,7 +26,7 @@ class PreviewView extends View {
                   <h3 class="heading preview__title">
                     ${title}
                   </h3>
-                  <p class="text preview__publisher">${publisher}g</p>
+                  <p class="text preview__publisher">${publisher}</p>
                   <div class="preview__user-generated visually-hidden">
                     <svg>
                       <use href="${icons}#icon-user"></use>

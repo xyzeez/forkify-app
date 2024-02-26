@@ -48,6 +48,7 @@
 }
 
 .upload {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,6 +57,10 @@
   padding: 1rem;
   border-radius: 10px;
   background-color: $color-white;
+
+  &:has(.upload__btn--submit:is(.show)) {
+    padding-bottom: 4.5rem;
+  }
 
   &__heading {
     width: fit-content;
@@ -82,7 +87,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    padding-bottom: 3rem;
   }
 
   &__input-container {
@@ -92,7 +96,7 @@
     gap: 0.5rem;
     margin-bottom: 1rem;
 
-    &:has(.form__input[aria-invalid='true']) {
+    &:has(.upload__input[aria-invalid='true']) {
       padding-bottom: 1.5rem;
     }
   }
@@ -132,7 +136,7 @@
     animation: fade-in 0.3s ease-in;
   }
 
-  &__input[aria-invalid='true'] + .form__error-message {
+  &__input[aria-invalid='true'] + .upload__error-message {
     display: block;
   }
 
@@ -141,15 +145,20 @@
     margin-top: 0rem;
   }
 
+  &__btn--add {
+    margin-left: 0;
+  }
+
   &__btn--next,
   &__btn--prev {
-    position: absolute;
-    bottom: 0;
-    right: calc(50% - 50px);
+    // position: absolute;
+    // bottom: 44px;
+    // right: calc(50% - 50px);
   }
 
   &__btn--submit {
-    margin-top: 1rem;
+    position: absolute;
+    bottom: 1rem;
 
     &:not(.show) {
       display: none;
@@ -160,8 +169,8 @@
     padding: 2rem;
     width: 100%;
 
-    &:has(.upload__btn--submit:not(.show)) {
-      padding-bottom: 5rem;
+    &:has(.upload__btn--submit:is(.show)) {
+      padding-bottom: inherit;
     }
 
     &__heading {
@@ -183,19 +192,21 @@
 
     &__btn--prev,
     &__btn--next {
-      bottom: -3.75rem;
+      // bottom: 3.75rem;
     }
 
     &__btn--prev {
-      right: auto;
+      margin-left: 0;
     }
 
     &__btn--next {
-      right: 0;
+      margin-right: 0;
     }
 
     &__btn--submit {
-      margin-right: 0;
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
     }
   }
 

@@ -485,18 +485,21 @@
               </p>
             </div>
             <!--  -->
-            <button
-              aria-label="Next"
-              class="btn btn--alt upload__btn upload__btn--next"
-            >
-              <svg class="btn__icon" aria-hidden="true">
-                <use href="./src/img/icons.svg#icon-arrow-right"></use>
-              </svg>
-              <span>Next</span>
-            </button>
           </div>
+          <button
+            aria-label="Next"
+            class="btn btn--alt upload__btn upload__btn--next"
+          >
+            <svg class="btn__icon" aria-hidden="true">
+              <use href="./src/img/icons.svg#icon-arrow-right"></use>
+            </svg>
+            <span>Next</span>
+          </button>
         </div>
-        <div class="upload__column upload__column--ingredients">
+        <div
+          data-ingredients-number="6"
+          class="upload__column upload__column--ingredients"
+        >
           <h2 class="upload__heading">Ingredients</h2>
           <div class="upload__inner">
             <!--  -->
@@ -625,16 +628,26 @@
               </p>
             </div>
             <!--  -->
-            <button
-              aria-label="Previous"
-              class="btn btn--alt upload__btn upload__btn--prev"
-            >
-              <svg class="btn__icon" aria-hidden="true">
-                <use href="./src/img/icons.svg#icon-arrow-right"></use>
-              </svg>
-              <span>Prev</span>
-            </button>
           </div>
+          <button
+            aria-label="Add Ingredient"
+            class="btn btn--sec upload__btn upload__btn--add"
+          >
+            <svg class="btn__icon" aria-hidden="true">
+              <use href="./src/img/icons.svg#icon-add"></use>
+            </svg>
+            <span>Add Ingredient</span>
+          </button>
+
+          <button
+            aria-label="Previous"
+            class="btn btn--alt upload__btn upload__btn--prev"
+          >
+            <svg class="btn__icon" aria-hidden="true">
+              <use href="./src/img/icons.svg#icon-arrow-right"></use>
+            </svg>
+            <span>Prev</span>
+          </button>
         </div>
         <button
           type="submit"

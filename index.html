@@ -368,7 +368,7 @@
       class="modal-window"
     >
       <form class="upload" novalidate>
-        <div class="upload__column">
+        <div class="upload__column upload__column--recipe show">
           <h2 class="upload__heading">Recipe data</h2>
           <div class="upload__inner">
             <!--  -->
@@ -416,7 +416,7 @@
                 type="text"
                 name="image"
                 aria-errormessage="imageErrorMessage"
-                placeholder="www.example.com/photo-1"
+                placeholder="www.example.com/photo"
                 class="upload__input"
               />
               <p
@@ -435,7 +435,7 @@
                 type="text"
                 name="publisher"
                 aria-errormessage="publisherErrorMessage"
-                placeholder="e.g. Pizza Dip"
+                placeholder="e.g. Bon Appetit"
                 class="upload__input"
               />
               <p
@@ -486,7 +486,7 @@
             </div>
             <!--  -->
             <button
-              aria-label="Upload"
+              aria-label="Next"
               class="btn btn--alt upload__btn upload__btn--next"
             >
               <svg class="btn__icon" aria-hidden="true">
@@ -496,7 +496,7 @@
             </button>
           </div>
         </div>
-        <div class="upload__column">
+        <div class="upload__column upload__column--ingredients">
           <h2 class="upload__heading">Ingredients</h2>
           <div class="upload__inner">
             <!--  -->
@@ -626,7 +626,7 @@
             </div>
             <!--  -->
             <button
-              aria-label="Upload"
+              aria-label="Previous"
               class="btn btn--alt upload__btn upload__btn--prev"
             >
               <svg class="btn__icon" aria-hidden="true">

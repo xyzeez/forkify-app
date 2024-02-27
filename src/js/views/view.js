@@ -41,4 +41,18 @@ export default class View {
     this.clearInner();
     this._parentElement.insertAdjacentHTML('afterbegin', feedback);
   };
+
+  renderMessage(message = this._feedbackMessage) {
+    const markup = `
+      <div class="feedback message">
+        <svg class="feedback__icon">
+            <use href="${icons}#icon-smile"></use>
+        </svg>
+        <p class="feedback__text">
+          ${message}
+        </p>
+      </div>`;
+    this.clearInner();
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
+  }
 }

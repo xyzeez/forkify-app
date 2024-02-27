@@ -10,6 +10,7 @@ import resultView from './views/resultView';
 import bookmarksView from './views/bookmarksView';
 import paginationView from './views/paginationView';
 import previewView from './views/previewView';
+import uploadRecipeView from './views/uploadRecipeView';
 
 const controlRecipe = async () => {
   try {
@@ -62,6 +63,19 @@ const controlServings = newServings => {
   recipeView.updateRecipe(model.state.recipe);
 };
 
+const controlUploadRecipe = async newRecipe => {
+  try {
+    uploadRecipeView.renderSpinner();
+    await model.uploadRecipe(newRecipe);
+    recipeView.renderRecipe(model.state.recipe);
+    uploadRecipeView.renderMessage();
+    bookmarksView.renderBookmarks(model.state.bookmarks);
+    window.history.pushState(null, '', `${model.state.recipe.id}`);
+  } catch (error) {
+    uploadRecipeView.renderFeedback(error.message);
+  }
+};
+
 const init = () => {
   recipeView.addHandlerRender(controlRecipe);
   resultView.addHandlerSearch(controlSearchResult);
@@ -69,6 +83,8 @@ const init = () => {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   bookmarksView.renderBookmarks(model.state.bookmarks);
   recipeView.addHandlerUpdateServings(controlServings);
+  uploadRecipeView.monitorUpload();
+  uploadRecipeView.addHandlerUploadRecipe(controlUploadRecipe);
 };
 
 init();

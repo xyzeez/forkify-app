@@ -62,7 +62,8 @@ class BookmarksView extends View {
       if (
         e.target === this._btnElement ||
         e.target === this._btnSVG ||
-        e.target === this._btnSpan
+        e.target === this._btnSpan ||
+        e.target === this._btnIcon
       ) {
         this._parentElement.classList.add('show');
       }

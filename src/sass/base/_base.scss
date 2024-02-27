@@ -50,13 +50,6 @@ main {
   background-color: $color-white;
 
   @include respond-to(1023px, 'max-width') {
-    &:not(:has(.recipe.active)) {
-      grid-template-rows: repeat(
-        auto-fit,
-        minmax(calc(100dvh - (50px + 142px)), auto)
-      );
-    }
-
     &:has(.recipe.active + .results:not(.active)) {
       .results {
         display: none;
@@ -69,18 +62,11 @@ main {
       }
     }
 
-    &:has(.results:not(.active) + .recipe:not(.active)) {
+    &:has(.recipe:not(.active) + .results:not(.active)) {
       .results {
         display: none;
       }
     }
-  }
-
-  @include respond-to(768px) {
-    grid-template-rows: repeat(
-      auto-fit,
-      minmax(calc(100dvh - (94px + 142px)), auto)
-    );
   }
 
   @include respond-to(1024px) {
